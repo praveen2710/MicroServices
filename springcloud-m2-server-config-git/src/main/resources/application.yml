@@ -21,4 +21,6 @@ spring:
           search-paths:
           - tolls-config/github-pluralsight-spring-cloudconfig-wa-tolls
           - tolls-config/github-pluralsight-spring-cloudconfig-wa-tolls/station*
-#          - tolls-config/github-pluralsight-spring-cloudconfig-wa-tolls-perf
+#          - tolls-config/github-pluralsight-spring-cloudconfig-wa-tolls-perf          
+        encrypt:
+          enabled: false
