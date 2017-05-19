@@ -1,6 +1,15 @@
 ---
+#Port number defintion
 server:
   port: 8888
+#Authorization flag  
+security:
+  basic:
+    enabled: true
+  user:
+    name: pluralsight
+    password: praveen
+#remote config file setting    
 spring:
   cloud:
     config:
