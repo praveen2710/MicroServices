@@ -31,9 +31,10 @@ public class PluralsightSpringcloudM5Dataservice2Application {
 		String result ;
 		
 		Span s = this.tracer.createSpan("lookup Vehicle");
+		Span s2 = this.tracer.createSpan("look2");
 		
 		try{
-			
+//			This is valid for one span only and that too the last nested one.In this case s2
 			this.tracer.addTag("customerId", cid.toString());
 			
 			s.logEvent("Database query started");
@@ -50,8 +51,11 @@ public class PluralsightSpringcloudM5Dataservice2Application {
 			s.logEvent("Database query finished");
 			
 		}finally {
+			//spans needs to be closed in reverse order of them created 
+			//else it will throw error about not finding parent.
+			this.tracer.close(s2);
 			this.tracer.close(s);
-		}
+		}		
 		return result;
 	}
 }
